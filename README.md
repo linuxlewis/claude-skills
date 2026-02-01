@@ -1,6 +1,6 @@
 # Claude Skills
 
-Custom Claude Code plugins and skills.
+Custom Claude Code plugins and skills marketplace.
 
 ## Installation
 
@@ -10,13 +10,13 @@ Add this marketplace to Claude Code:
 claude plugin marketplace add linuxlewis/claude-skills
 ```
 
-Then install skills:
+Then install plugins:
 
 ```bash
 claude plugin install agent-browser@linuxlewis-skills
 ```
 
-## Available Skills
+## Available Plugins
 
 ### agent-browser
 
@@ -33,10 +33,15 @@ Browser automation skill using the `agent-browser` CLI. Enables Claude to:
 ```
 claude-skills/
 ├── .claude-plugin/
-│   └── plugin.json        # Plugin metadata
-├── skills/
+│   └── marketplace.json   # Marketplace manifest
+├── plugins/
 │   └── agent-browser/
-│       └── SKILL.md       # Browser automation skill
+│       ├── .claude-plugin/
+│       │   └── plugin.json
+│       ├── skills/
+│       │   └── agent-browser/
+│       │       └── SKILL.md
+│       └── README.md
 └── README.md
 ```
 

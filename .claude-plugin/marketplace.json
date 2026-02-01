@@ -1,0 +1,20 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "linuxlewis-skills",
+  "description": "Custom Claude Code plugins for browser automation and more",
+  "owner": {
+    "name": "linuxlewis"
+  },
+  "plugins": [
+    {
+      "name": "agent-browser",
+      "description": "Browser automation skill using the agent-browser CLI for navigating and interacting with websites",
+      "version": "1.0.0",
+      "author": {
+        "name": "linuxlewis"
+      },
+      "source": "./plugins/agent-browser",
+      "category": "tools"
+    }
+  ]
+}
