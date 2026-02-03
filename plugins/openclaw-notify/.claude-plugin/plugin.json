@@ -1,0 +1,11 @@
+{
+  "name": "openclaw-notify",
+  "version": "1.0.0",
+  "description": "Notify OpenClaw gateway when background tasks complete",
+  "author": {
+    "name": "linuxlewis"
+  },
+  "license": "MIT",
+  "keywords": ["openclaw", "notify", "gateway", "background"],
+  "commands": "./commands/"
+}
