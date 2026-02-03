@@ -43,6 +43,17 @@ Review and respond to PR comments automatically. Features:
 
 **Requirements:** GitHub CLI (`gh`) installed and authenticated
 
+### openclaw-notify
+
+Notify OpenClaw gateway when background tasks complete. Use when dispatched by OpenClaw/TARS for background work.
+
+- Sends completion notifications back to the dispatching session
+- Simple one-liner: `openclaw gateway wake --text "message" --mode now`
+
+**Command:** `/notify <message>` - Send notification to OpenClaw
+
+**Requirements:** `openclaw` CLI installed, gateway running
+
 ## Structure
 
 ```
@@ -54,10 +65,15 @@ claude-skills/
 │   │   ├── .claude-plugin/plugin.json
 │   │   ├── skills/agent-browser/SKILL.md
 │   │   └── README.md
-│   └── pr-responder/
+│   ├── pr-responder/
+│   │   ├── .claude-plugin/plugin.json
+│   │   ├── commands/respond.md
+│   │   ├── skills/pr-reviewer/SKILL.md
+│   │   └── README.md
+│   └── openclaw-notify/
 │       ├── .claude-plugin/plugin.json
-│       ├── commands/respond.md
-│       ├── skills/pr-reviewer/SKILL.md
+│       ├── commands/notify.md
+│       ├── skills/openclaw-notify/SKILL.md
 │       └── README.md
 └── README.md
 ```

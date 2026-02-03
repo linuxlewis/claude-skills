@@ -25,6 +25,16 @@
       },
       "source": "./plugins/pr-responder",
       "category": "development"
+    },
+    {
+      "name": "openclaw-notify",
+      "description": "Notify OpenClaw gateway when background tasks complete. Provides /notify command and skill for pinging the user who dispatched you.",
+      "version": "1.0.0",
+      "author": {
+        "name": "linuxlewis"
+      },
+      "source": "./plugins/openclaw-notify",
+      "category": "tools"
     }
   ]
 }
