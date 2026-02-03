@@ -6,25 +6,42 @@ Agent Skills are an open format for giving agents new capabilities and expertise
 
 ## Installation
 
-### Claude Code
+### Agent Skills CLI (Recommended)
 
-Add this marketplace:
+Install any skill directly using `npx`:
 
 ```bash
-claude plugin marketplace add linuxlewis/agent-skills
+# Install a skill
+npx skills add linuxlewis/agent-skills/skills/agent-browser
+npx skills add linuxlewis/agent-skills/skills/pr-responder
+npx skills add linuxlewis/agent-skills/skills/ralph-runner
+npx skills add linuxlewis/agent-skills/skills/openclaw-notify
+
+# List installed skills
+npx skills list
+
+# Remove a skill
+npx skills remove agent-browser
 ```
 
-Then install skills:
+### Claude Code Plugin
+
+Alternatively, use the Claude Code plugin system:
 
 ```bash
+# Add marketplace
+claude plugin marketplace add linuxlewis/agent-skills
+
+# Install skills
 claude plugin install agent-browser@linuxlewis-agent-skills
 claude plugin install pr-responder@linuxlewis-agent-skills
 claude plugin install ralph-runner@linuxlewis-agent-skills
+claude plugin install openclaw-notify@linuxlewis-agent-skills
 ```
 
-### Standalone
+### Manual
 
-Skills in the `skills/` directory are Agent Skills compliant and can be used with any compatible agent. Copy the skill folder to your agent's skills directory.
+Copy any skill folder from `skills/` to your agent's skills directory.
 
 ## Available Skills
 
@@ -63,6 +80,18 @@ Run Ralph Wiggum autonomous coding loops.
 
 **Requirements:** `ralph-cli` and Claude Code CLI
 
+### openclaw-notify
+
+Notify OpenClaw gateway when background tasks complete.
+
+- Send completion notifications back to dispatching session
+- Report success, failure, or blocked status
+- Simple one-command interface
+
+**Requirements:** `openclaw` CLI installed, gateway running
+
+**Command:** `/notify <message>` - Send notification to OpenClaw
+
 ## Structure
 
 ```
@@ -71,22 +100,23 @@ agent-skills/
 │   └── marketplace.json        # Claude Code marketplace
 ├── skills/                      # Agent Skills compliant (portable)
 │   ├── agent-browser/
-│   │   ├── SKILL.md            # Main skill file
-│   │   └── references/         # Additional docs
-│   │       └── commands.md
+│   │   ├── SKILL.md
+│   │   └── references/
 │   ├── pr-responder/
 │   │   ├── SKILL.md
 │   │   └── references/
-│   │       └── github-api.md
-│   └── ralph-runner/
-│       ├── SKILL.md
-│       └── references/
-│           └── prd-format.md
+│   ├── ralph-runner/
+│   │   ├── SKILL.md
+│   │   └── references/
+│   └── openclaw-notify/
+│       └── SKILL.md
 ├── plugins/                     # Claude Code specific (commands)
-│   └── pr-responder/
+│   ├── pr-responder/
+│   │   ├── .claude-plugin/plugin.json
+│   │   └── commands/
+│   └── openclaw-notify/
 │       ├── .claude-plugin/plugin.json
 │       └── commands/
-│           └── respond.md
 └── README.md
 ```
 
